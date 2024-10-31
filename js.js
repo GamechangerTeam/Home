@@ -11,6 +11,15 @@ const consultation_Page = document.querySelector(".consultation");
 const cases_all = document.querySelector(".cases_all");
 const certificates = document.querySelector(".certificates");
 
+certificates.addEventListener("click", (e) => {
+  if (
+    !e.target.closest(".certificates__img-wrapper") &&
+    !e.target.closest("#certificates_swiper")
+  ) {
+    certificates.classList.remove("active");
+  }
+});
+
 // // ЛОГИКА УДАЛЕНИЯ ПРЕЛОУДЕРА ПРИ ЗАГРУЗКЕ ВИДЕО
 video.addEventListener("canplaythrough", function () {
   preloader.style.display = "none";
