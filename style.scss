@@ -849,11 +849,6 @@ p {
 
       @media (max-width: 600px) {
         grid-template-columns: 1fr 1fr;
-
-        button,
-        a {
-          font-size: 14px;
-        }
       }
 
       @include mobile() {
@@ -2409,7 +2404,8 @@ p {
       }
     }
 
-    &-button-prev, &-button-next {
+    &-button-prev,
+    &-button-next {
       background-image: url("https://static.tildacdn.com/tild3465-6232-4063-b664-646632366663/arrow.svg");
       background-position: center;
       background-size: contain;
@@ -2420,17 +2416,17 @@ p {
       top: 50%;
       transform: translateY(-50%);
       &::after {
-        all: unset
+        all: unset;
       }
     }
 
     &-button-next {
       transform: rotate(360deg);
-    } 
+    }
 
     &-button-prev {
       transform: rotate(180deg);
-    } 
+    }
   }
 
   button {
