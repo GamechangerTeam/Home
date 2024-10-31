@@ -2338,21 +2338,16 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   .container {
     background-color: transparent;
-    border: 1px solid #04d404;
-    // aspect-ratio: 1/1;
     padding: 100px 0 20px;
     width: 100%;
     max-width: 768px;
     display: grid;
-    grid-template-rows: 60% 30%;
+    grid-template-rows: 60% 1fr;
   }
 
   &__img-wrapper {
     margin: 0 auto;
-    // margin-bottom: 70px;
     padding: 0 20px;
-    // display: grid;
-    // place-items: center;
     position: relative;
     display: flex;
     align-items: center;
@@ -2383,8 +2378,13 @@ p {
   .swiper {
     width: 100%;
     grid-row-start: 2 span;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &-wrapper {
-      align-items: flex-end;
+      align-items: center;
+      height: fit-content !important;
     }
     &-slide {
       scale: 0.9;
@@ -2397,7 +2397,7 @@ p {
       }
 
       &:first-child {
-        padding-bottom: 50px;
+        padding-bottom: 20px;
       }
     }
     img {
@@ -2408,6 +2408,29 @@ p {
         border-radius: 10px;
       }
     }
+
+    &-button-prev, &-button-next {
+      background-image: url("https://static.tildacdn.com/tild3465-6232-4063-b664-646632366663/arrow.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      &::after {
+        all: unset
+      }
+    }
+
+    &-button-next {
+      transform: rotate(360deg);
+    } 
+
+    &-button-prev {
+      transform: rotate(180deg);
+    } 
   }
 
   button {

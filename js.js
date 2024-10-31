@@ -255,14 +255,19 @@ const trustUs = new Swiper("#trustUs", {
 const certificates_swiper = new Swiper("#certificates_swiper", {
   spaceBetween: 20,
   centeredSlides: true,
-  slidesPerView: 2.5,
+  slidesPerView: 3,
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 
   breakpoints: {
     768: {
-      slidesPerView: 4.5,
+      slidesPerView: 5,
     },
     475: {
-      slidesPerView: 3.5,
+      slidesPerView: 4,
     },
   },
   on: {
@@ -282,12 +287,18 @@ const certificates_swiper = new Swiper("#certificates_swiper", {
           certificates__mainImg.style.aspectRatio = "";
         }
       } else {
-
         certificates__mainImg.style.width = "auto";
         certificates__mainImg.style.height = "90%";
         certificates__mainImg.style.aspectRatio = "2 / 3";
       }
       certificates__mainImg.src = activeSlide.src;
+    },
+
+    click: function (swiper) {
+      const clickedIndex = swiper.clickedIndex;
+      if (clickedIndex !== undefined && clickedIndex !== swiper.activeIndex) {
+        swiper.slideTo(clickedIndex);
+      }
     },
   },
 });
