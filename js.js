@@ -9,6 +9,7 @@ const openLeftSection = document.querySelectorAll(".open_left_section");
 const hideLeftSection = document.querySelectorAll(".hide_left_section");
 const consultation_Page = document.querySelector(".consultation");
 const cases_all = document.querySelector(".cases_all");
+const certificates = document.querySelector(".certificates");
 
 // // ЛОГИКА УДАЛЕНИЯ ПРЕЛОУДЕРА ПРИ ЗАГРУЗКЕ ВИДЕО
 video.addEventListener("canplaythrough", function () {
@@ -29,9 +30,10 @@ const loadImages = () => {
 // ЗАКРЫТЬ СЕКЦИЮ
 hideLeftSection.forEach((btn) => {
   btn.addEventListener("click", () => {
-    consultation_Page.classList.remove("active");
-    cases_all.classList.remove("active");
-    document.body.style.overflow = "auto";
+    leftSection.forEach((section) => {
+      section.classList.remove("active");
+    });
+    document.documentElement.style.overflowY = "auto";
   });
 });
 
@@ -156,6 +158,13 @@ const url = "https://gamechanger.bitrix24.kz/rest/1026/o2wh86f2zi524mww/";
 const readyUrl =
   "https://gamechanger.bitrix24.kz/rest/1026/o2wh86f2zi524mww/crm.lead.add.json";
 
+setTimeout(() => {
+  leftSection.forEach((section) => {
+    section.style.visibility = "visible";
+    section.style.opacity = "1";
+  });
+}, 1000);
+
 // ОТКРЫТЬ СЕКЦИЮ
 openLeftSection.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -164,18 +173,26 @@ openLeftSection.forEach((btn) => {
       btn.disabled = false;
     }, 500);
     const dataName = btn.getAttribute("data-name");
-    console.log("🚀 ~ btn.addEventListener ~ name:", name);
-    document.body.style.overflow = "hidden";
-    // lenis.stop()
-    if (dataName !== "casesAll") {
-      consultation_Page.style.visibility = "visible";
-      consultation_Page.style.opacity = "1";
-      consultation_Page.classList.toggle("active");
-    } else {
-      cases_all.classList.toggle("active");
-      cases_all.style.visibility = "visible";
-      cases_all.style.opacity = "1";
-      loadImages();
+    document.documentElement.style.overflow = "hidden";
+
+    switch (dataName) {
+      case "certificates":
+        certificates.classList.toggle("active");
+        break;
+
+      case "consultation":
+        consultation_Page.classList.toggle("active");
+
+        break;
+
+      case "casesAll":
+        cases_all.classList.toggle("active");
+        loadImages();
+
+        break;
+
+      default:
+        break;
     }
   });
 });
@@ -232,6 +249,46 @@ const trustUs = new Swiper("#trustUs", {
   navigation: {
     nextEl: ".trustUs_container-button-next",
     prevEl: ".trustUs_container-button-prev",
+  },
+});
+
+const certificates_swiper = new Swiper("#certificates_swiper", {
+  spaceBetween: 20,
+  centeredSlides: true,
+  slidesPerView: 2.5,
+
+  breakpoints: {
+    768: {
+      slidesPerView: 4.5,
+    },
+    475: {
+      slidesPerView: 3.5,
+    },
+  },
+  on: {
+    slideChange: function () {
+      const activeSlide = this.slides[this.activeIndex].querySelector("img");
+      const certificates__mainImg = document.querySelector(
+        ".certificates__main-img"
+      );
+      if (this.activeIndex === 0) {
+        if (window.innerHeight >= 600) {
+          certificates__mainImg.style.width = "90%";
+          certificates__mainImg.style.height = "auto";
+          certificates__mainImg.style.aspectRatio = "16 / 9";
+        } else {
+          certificates__mainImg.style.width = "60%";
+          certificates__mainImg.style.height = "auto";
+          certificates__mainImg.style.aspectRatio = "16 / 9";
+        }
+      } else {
+
+        certificates__mainImg.style.width = "auto";
+        certificates__mainImg.style.height = "90%";
+        certificates__mainImg.style.aspectRatio = "2 / 3";
+      }
+      certificates__mainImg.src = activeSlide.src;
+    },
   },
 });
 
@@ -308,40 +365,30 @@ play_sound.forEach((btn) => {
   });
 });
 
-// Находим контейнер слайдов
 const partnersSwiper_container = document.getElementById("partners_swiper");
 const partnersSwiper =
   partnersSwiper_container.querySelector(".swiper-wrapper");
 
-// Кэшируем все слайды в их первоначальном порядке
 const slides = Array.from(
   partnersSwiper.getElementsByClassName("swiper-slide")
 );
 
-// Порядок слайдов при разрешении больше 525px
 const desktopOrder = [0, 1, 2, 3, 4];
 
-// Порядок слайдов при разрешении 525px и меньше
 const mobileOrder = [0, 2, 4, 1, 3];
 
-// Функция для изменения порядка слайдов
 function rearrangeSlides() {
   const windowWidth = window.innerWidth;
 
-  // Очищаем контейнер слайдов
   partnersSwiper.innerHTML = "";
 
-  // Определяем порядок слайдов в зависимости от ширины экрана
   const order = windowWidth > 525 ? desktopOrder : mobileOrder;
 
-  // Вставляем слайды в новом порядке
   order.forEach((index) => {
     partnersSwiper.appendChild(slides[index].cloneNode(true));
   });
 }
 
-// Отслеживаем изменение размера окна
 window.addEventListener("resize", rearrangeSlides);
 
-// Запускаем перестановку при первой загрузке страницы
 window.addEventListener("load", rearrangeSlides);
