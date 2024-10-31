@@ -275,11 +275,11 @@ const certificates_swiper = new Swiper("#certificates_swiper", {
         if (window.innerHeight >= 600) {
           certificates__mainImg.style.width = "90%";
           certificates__mainImg.style.height = "auto";
-          certificates__mainImg.style.aspectRatio = "16 / 9";
+          certificates__mainImg.style.aspectRatio = "";
         } else {
           certificates__mainImg.style.width = "60%";
           certificates__mainImg.style.height = "auto";
-          certificates__mainImg.style.aspectRatio = "16 / 9";
+          certificates__mainImg.style.aspectRatio = "";
         }
       } else {
 

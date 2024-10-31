@@ -2598,7 +2598,6 @@ p {
   margin: 0 auto;
   display: block;
   border-radius: 10px;
-  aspect-ratio: 16/9;
   width: 80%;
   height: auto;
 }
