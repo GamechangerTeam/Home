@@ -519,7 +519,7 @@ p {
 }
 .homepage__header__cards {
   display: grid;
-  grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  grid-template: repeat(2, minmax(100px, 1fr))/repeat(2, 1fr);
   gap: 15px;
   justify-content: center;
   width: 90%;
@@ -746,10 +746,6 @@ p {
 @media (max-width: 600px) {
   .homepage__header-btns {
     grid-template-columns: 1fr 1fr;
-  }
-  .homepage__header-btns button,
-  .homepage__header-btns a {
-    font-size: 14px;
   }
 }
 @media (max-width: 525px) {

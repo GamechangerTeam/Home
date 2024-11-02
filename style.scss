@@ -666,7 +666,7 @@ p {
 
     &__cards {
       display: grid;
-      grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+      grid-template: repeat(2, minmax(100px, 1fr)) / repeat(2, 1fr);
       gap: 15px;
       justify-content: center;
       width: 90%;
