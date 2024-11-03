@@ -17,6 +17,8 @@ certificates.addEventListener("click", (e) => {
     !e.target.closest("#certificates_swiper")
   ) {
     certificates.classList.remove("active");
+    document.documentElement.style.overflow = "auto";
+
   }
 });
 
