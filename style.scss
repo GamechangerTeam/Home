@@ -814,7 +814,7 @@ p {
       justify-content: center;
       gap: 15px;
 
-      button {
+      &--free-consultation {
         @include grayBtn();
 
         @include mobile() {
@@ -827,11 +827,10 @@ p {
         }
       }
 
-      a {
+      &--open-whatsapp {
         @include greenBtn();
       }
 
-      button,
       a {
         height: auto;
         padding: 12px 24px;

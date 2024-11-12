@@ -654,7 +654,7 @@ p {
   justify-content: center;
   gap: 15px;
 }
-.homepage__header-btns button {
+.homepage__header-btns--free-consultation {
   background-color: #050505;
   border: 1px solid #292929;
   border-radius: 10px;
@@ -665,35 +665,35 @@ p {
   height: -moz-fit-content;
   height: fit-content;
 }
-.homepage__header-btns button:hover {
+.homepage__header-btns--free-consultation:hover {
   background-color: white;
   color: black !important;
 }
-.homepage__header-btns button:active {
+.homepage__header-btns--free-consultation:active {
   scale: 0.95;
 }
 @media (max-width: 525px) {
-  .homepage__header-btns button {
+  .homepage__header-btns--free-consultation {
     height: 60px !important;
   }
 }
-.homepage__header-btns button svg {
+.homepage__header-btns--free-consultation svg {
   width: 20px;
   height: 20px;
 }
 @media (max-width: 525px) {
-  .homepage__header-btns button {
+  .homepage__header-btns--free-consultation {
     padding: 16px;
     font-size: 16px;
   }
 }
 @media (max-width: 350px) {
-  .homepage__header-btns button {
+  .homepage__header-btns--free-consultation {
     font-size: 14px;
     padding: 16px 10px;
   }
 }
-.homepage__header-btns a {
+.homepage__header-btns--open-whatsapp {
   border: none;
   background: linear-gradient(134.17deg, #04d404 4.98%, #55aa55 94.88%);
   border-radius: 10px;
@@ -709,25 +709,24 @@ p {
   transition: 0.3s;
   box-shadow: -12px -12px 20px rgba(4, 212, 4, 0.13), 10px 10px 20px rgba(9, 90, 9, 0.49);
 }
-.homepage__header-btns a svg {
+.homepage__header-btns--open-whatsapp svg {
   width: 20px;
   height: 20px;
 }
-.homepage__header-btns a:hover {
+.homepage__header-btns--open-whatsapp:hover {
   scale: 0.95;
 }
 @media (max-width: 768px) {
-  .homepage__header-btns a {
+  .homepage__header-btns--open-whatsapp {
     padding: 16px 24px;
   }
 }
 @media (max-width: 525px) {
-  .homepage__header-btns a {
+  .homepage__header-btns--open-whatsapp {
     font-size: 14px !important;
     height: 50px !important;
   }
 }
-.homepage__header-btns button,
 .homepage__header-btns a {
   height: auto;
   padding: 12px 24px;
@@ -739,7 +738,6 @@ p {
   width: 100%;
   font-weight: 600;
 }
-.homepage__header-btns button img,
 .homepage__header-btns a img {
   width: 20px;
 }
